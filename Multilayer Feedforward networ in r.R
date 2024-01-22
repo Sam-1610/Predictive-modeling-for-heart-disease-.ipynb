@@ -1,4 +1,4 @@
-
+data<-
 data<-read.csv("C:/Users/samruddhi/Desktop/heart.csv")
 View(data)
 data$target[data$target==1]="unhealthy"
@@ -9,7 +9,7 @@ sample=sample.split(data,SplitRatio=0.75)
 traning=subset(data,sample==TRUE)
 testing=subset(data,sample==FALSE)
 library(neuralnet)
-n=neuralnet(target~ï..age+sex+cp+trestbps+chol+fbs+restecg+thalach+exang+oldpeak+slope+ca+thal,data=traning,hidden=c(5,3),act.fct="logistic",linear.output=FALSE)
+n=neuralnet(target~Ã¯..age+sex+cp+trestbps+chol+fbs+restecg+thalach+exang+oldpeak+slope+ca+thal,data=traning,hidden=c(5,3),act.fct="logistic",linear.output=FALSE)
 plot(n)
 output=compute(n,testing[-14])
 idx=apply(output$net.result,I,which.max)
